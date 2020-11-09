@@ -9,8 +9,17 @@ let bottomLeft = document.querySelector("#bottomLeft");
 let bottomMiddle = document.querySelector("#bottomMiddle");
 let bottomRight = document.querySelector("#bottomRight");
 
+
 let player = "X";
 
+const checkWin = function() {
+   if (topLeft.childNodes[1].textContent) {
+     if (topLeft.childNodes[1].textContent == middleLeft.childNodes[1].textContent
+     && topLeft.childNodes[1].textContent == bottomLeft.childNodes[1].textContent) {
+     topLeft.style.backgroundColor = 'green';
+   }
+  }
+}
 const clickBox = function(evt) {
   let symbol = document.createElement("p");
   symbol.textContent = player;
@@ -21,6 +30,7 @@ const clickBox = function(evt) {
   }
   evt.target.appendChild(symbol);
   evt.target.removeEventListener("click", clickBox);
+  return checkWin();
 };
 
 topLeft.addEventListener("click", clickBox);
