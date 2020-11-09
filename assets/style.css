@@ -1,0 +1,23 @@
+/* Main Grid Container */
+.grid {
+    padding: 50px;
+    display: grid;
+    grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
+    width: 300px;
+    height: 300px;
+}
+
+
+/* Each Cell */
+.gridBox {
+    border: solid;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+/* Paragraphs inside of cells */
+.gridBox > p {
+    padding-top: 15px;
+}
