@@ -1,3 +1,6 @@
+let grid = document.querySelector(".grid");
+let gridNodes = grid.childNodes;
+
 let gridBox = document.querySelectorAll(".gridBox");
 
     for (let index of gridBox) {
@@ -15,39 +18,36 @@ let bottomLeft = document.querySelector("#bottomLeft");
 let bottomMiddle = document.querySelector("#bottomMiddle");
 let bottomRight = document.querySelector("#bottomRight");
 
-
 let player = "X";
 
 const checkWin = function() {
-   if (topLeft.childNodes[1].textContent) {
-     if (topLeft.childNodes[1].textContent == middleLeft.childNodes[1].textContent
-     && topLeft.childNodes[1].textContent == bottomLeft.childNodes[1].textContent) {
+   if (topLeft.childNodes[0].textContent) {
+     if (topLeft.childNodes[0].textContent == middleLeft.childNodes[0].textContent
+     && topLeft.childNodes[0].textContent == bottomLeft.childNodes[0].textContent) {
      topLeft.style.backgroundColor = 'green';
      middleLeft.style.backgroundColor = 'green';
      bottomLeft.style.backgroundColor = 'green';
+         
+         for (let index of gridNodes) {
+             index.removeEventListener("click", clickBox);
+         };
+         
     };
   };
 };
 
 const clickBox = function(evt) {
-  let symbol = document.createElement("p");
-  symbol.textContent = player;
+  let paragraphSymbol = evt.target.childNodes[0]
+  paragraphSymbol.textContent = player;
   if (player == "X") {
     player = "O";
   } else {
     player = "X";
   };
-  evt.target.appendChild(symbol);
   evt.target.removeEventListener("click", clickBox);
   return checkWin();
 };
 
-topLeft.addEventListener("click", clickBox);
-topMiddle.addEventListener("click", clickBox);
-topRight.addEventListener("click", clickBox);
-middleLeft.addEventListener("click", clickBox);
-middleMiddle.addEventListener("click", clickBox);
-middleRight.addEventListener("click", clickBox);
-bottomLeft.addEventListener("click", clickBox);
-bottomMiddle.addEventListener("click", clickBox);
-bottomRight.addEventListener("click", clickBox);
+ for (let index of gridNodes) {
+     index.addEventListener("click", clickBox)
+ };
