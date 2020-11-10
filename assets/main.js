@@ -1,4 +1,10 @@
-let gridBox = document.querySelector(".gridBox")
+let gridBox = document.querySelectorAll(".gridBox");
+
+    for (let index of gridBox) {
+        paragraph = document.createElement("p");
+        index.appendChild(paragraph);
+    };
+
 let topLeft = document.querySelector("#topLeft");
 let topMiddle = document.querySelector("#topMiddle");
 let topRight = document.querySelector("#topRight");
@@ -19,9 +25,10 @@ const checkWin = function() {
      topLeft.style.backgroundColor = 'green';
      middleLeft.style.backgroundColor = 'green';
      bottomLeft.style.backgroundColor = 'green';
-   }
-  }
-}
+    };
+  };
+};
+
 const clickBox = function(evt) {
   let symbol = document.createElement("p");
   symbol.textContent = player;
@@ -29,7 +36,7 @@ const clickBox = function(evt) {
     player = "O";
   } else {
     player = "X";
-  }
+  };
   evt.target.appendChild(symbol);
   evt.target.removeEventListener("click", clickBox);
   return checkWin();
