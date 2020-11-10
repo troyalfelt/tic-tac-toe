@@ -19,5 +19,7 @@
 
 /* Paragraphs inside of cells */
 .gridBox > p {
-    padding-top: 15px;
+    padding-top: 3px;
+    font-size: 1.4em;
+    font-family: serif;
 }
