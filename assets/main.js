@@ -17,6 +17,8 @@ const checkWin = function() {
      if (topLeft.childNodes[1].textContent == middleLeft.childNodes[1].textContent
      && topLeft.childNodes[1].textContent == bottomLeft.childNodes[1].textContent) {
      topLeft.style.backgroundColor = 'green';
+     middleLeft.style.backgroundColor = 'green';
+     bottomLeft.style.backgroundColor = 'green';
    }
   }
 }
