@@ -2,6 +2,7 @@
 .grid {
   padding: 50px;
   display: grid;
+  padding: 0;
   grid-template: 1fr 1fr 1fr / 1fr 1fr 1fr;
   width: 300px;
   height: 300px;
@@ -14,6 +15,10 @@
   display: flex;
   justify-content: center;
   align-content: center;
+}
+
+body > p {
+    font-size: 4em;
 }
 
 /* Paragraphs inside of cells */

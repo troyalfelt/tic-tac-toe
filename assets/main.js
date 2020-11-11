@@ -1,7 +1,8 @@
 let grid = document.querySelector(".grid");
 let gridNodes = grid.childNodes;
-
 let gridBox = document.querySelectorAll(".gridBox");
+let displayParagraph = document.querySelector(".display");
+
 
 for (let index of gridBox) {
   paragraph = document.createElement("p");
@@ -18,7 +19,16 @@ let bottomLeft = document.querySelector("#bottomLeft");
 let bottomMiddle = document.querySelector("#bottomMiddle");
 let bottomRight = document.querySelector("#bottomRight");
 
-let player = "X";
+let player = "";
+let moves = 0;
+let winner = ""
+
+let win = false;
+
+const draw = function() {
+        grid.style.backgroundColor = "yellow";
+        displayParagraph.textContent = "Draw!";
+};
 
 const checkWin = function () {
   if (topLeft.childNodes[0].textContent.length > 0) {
@@ -30,9 +40,13 @@ const checkWin = function () {
       topLeft.style.backgroundColor = "green";
       middleLeft.style.backgroundColor = "green";
       bottomLeft.style.backgroundColor = "green";
+      win = true;
       for (let index of gridNodes) {
         index.removeEventListener("click", clickBox);
       }
+        //Sets the display text to say who the winner is
+        displayParagraph.textContent = (winner + " is the winner!");
+
     } else if (
       topLeft.childNodes[0].textContent ==
         topMiddle.childNodes[0].textContent &&
@@ -41,9 +55,13 @@ const checkWin = function () {
       topLeft.style.backgroundColor = "green";
       topMiddle.style.backgroundColor = "green";
       topRight.style.backgroundColor = "green";
+      win = true;
       for (let index of gridNodes) {
         index.removeEventListener("click", clickBox);
       }
+        //Sets the display text to say who the winner is
+        displayParagraph.textContent = (winner + " is the winner!");
+
     } else if (
       topLeft.childNodes[0].textContent ==
         middleMiddle.childNodes[0].textContent &&
@@ -52,9 +70,13 @@ const checkWin = function () {
       topLeft.style.backgroundColor = "green";
       middleMiddle.style.backgroundColor = "green";
       bottomRight.style.backgroundColor = "green";
+      win = true;
       for (let index of gridNodes) {
         index.removeEventListener("click", clickBox);
       }
+        //Sets the display text to say who the winner is
+        displayParagraph.textContent = (winner + " is the winner!");
+
     }
   }
   if (middleMiddle.childNodes[0].textContent.length > 0) {
@@ -67,9 +89,13 @@ const checkWin = function () {
       middleMiddle.style.backgroundColor = "green";
       topMiddle.style.backgroundColor = "green";
       bottomMiddle.style.backgroundColor = "green";
+      win = true;
       for (let index of gridNodes) {
         index.removeEventListener("click", clickBox);
       }
+        //Sets the display text to say who the winner is
+        displayParagraph.textContent = (winner + " is the winner!");
+
     } else if (
       middleMiddle.childNodes[0].textContent ==
         middleLeft.childNodes[0].textContent &&
@@ -79,9 +105,13 @@ const checkWin = function () {
       middleMiddle.style.backgroundColor = "green";
       middleLeft.style.backgroundColor = "green";
       middleRight.style.backgroundColor = "green";
+      win = true;
       for (let index of gridNodes) {
         index.removeEventListener("click", clickBox);
       }
+        //Sets the display text to say who the winner is
+        displayParagraph.textContent = (winner + " is the winner!");
+
     } else if (
       middleMiddle.childNodes[0].textContent ==
         bottomLeft.childNodes[0].textContent &&
@@ -91,9 +121,13 @@ const checkWin = function () {
       middleMiddle.style.backgroundColor = "green";
       bottomLeft.style.backgroundColor = "green";
       topRight.style.backgroundColor = "green";
+      win = true;
       for (let index of gridNodes) {
         index.removeEventListener("click", clickBox);
       }
+        //Sets the display text to say who the winner is
+        displayParagraph.textContent = (winner + " is the winner!");
+
     }
   }
   if (bottomRight.childNodes[0].textContent.length > 0) {
@@ -106,9 +140,13 @@ const checkWin = function () {
       bottomRight.style.backgroundColor = "green";
       bottomLeft.style.backgroundColor = "green";
       bottomMiddle.style.backgroundColor = "green";
+      win = true;
       for (let index of gridNodes) {
         index.removeEventListener("click", clickBox);
       }
+        //Sets the display text to say who the winner is
+        displayParagraph.textContent = (winner + " is the winner!");
+
     } else if (
       bottomRight.childNodes[0].textContent ==
         middleRight.childNodes[0].textContent &&
@@ -118,12 +156,25 @@ const checkWin = function () {
       bottomRight.style.backgroundColor = "green";
       middleRight.style.backgroundColor = "green";
       topRight.style.backgroundColor = "green";
+      win = true;
       for (let index of gridNodes) {
         index.removeEventListener("click", clickBox);
       }
+        //Sets the display text to say who the winner is
+        displayParagraph.textContent = (winner + " is the winner!");
+
     }
   }
- }
+
+
+    if (moves == 9 && win == false) {
+        return draw();
+    };
+
+
+};
+
+
 
 const clickBox = function (evt) {
   let paragraphSymbol = evt.target.childNodes[0];
@@ -132,9 +183,16 @@ const clickBox = function (evt) {
     player = "O";
   } else {
     player = "X";
-  }
+  };
+
+  if (winner == "O") {
+      winner = "X";
+  } else {
+      winner = "O"
+  };
 
   evt.target.removeEventListener("click", clickBox);
+    moves++;
   return checkWin();
 };
 
