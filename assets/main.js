@@ -123,18 +123,7 @@ const checkWin = function () {
       }
     }
   }
-  let counter = 0;
-  for (let index of gridNodes) {
-    if (index.childNodes[0].length > 0) {
-      counter += 1;
-    }
-  }
-  if (counter == 9) {
-    for (let index of gridNodes) {
-      index.style.backgroundColor = "yellow";
-    }
-  }
-};
+ }
 
 const clickBox = function (evt) {
   let paragraphSymbol = evt.target.childNodes[0];
