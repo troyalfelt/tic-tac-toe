@@ -17,6 +17,10 @@
   align-content: center;
 }
 
+body > p {
+    font-size: 4em;
+}
+
 /* Paragraphs inside of cells */
 .gridBox > p {
   padding-top: 3px;
