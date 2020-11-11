@@ -21,9 +21,18 @@ let bottomRight = document.querySelector("#bottomRight");
 
 let player = "";
 let moves = 0;
-let winner = ""
+let winner = "";
 
 let win = false;
+
+let random = Math.floor(Math.random() * 2);
+if (random == 0) {
+  player = "X";
+} else {
+  player = "O"
+}
+
+displayParagraph.textContent = ("Current player: " + player);
 
 const draw = function() {
         grid.style.backgroundColor = "yellow";
@@ -190,7 +199,7 @@ const clickBox = function (evt) {
   } else {
       winner = "O"
   };
-
+  displayParagraph.textContent = ("Current player: " + player);
   evt.target.removeEventListener("click", clickBox);
     moves++;
   return checkWin();
