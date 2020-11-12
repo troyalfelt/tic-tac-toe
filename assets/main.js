@@ -28,8 +28,10 @@ let win = false;
 let random = Math.floor(Math.random() * 2);
 if (random == 0) {
   player = "X";
+  winner = "O";
 } else {
-  player = "O"
+  player = "O";
+  winner = "X";
 }
 
 displayParagraph.textContent = ("Current player: " + player);
