@@ -267,6 +267,8 @@ const reset = function() {
   bottomRight.childNodes[0].textContent = "";
   //resets moves
   moves = 0;
+  //resets win
+  win = false;
   displayParagraph.textContent = ("Current player: " + player);
   //adds event listeners back
   for (let index of gridNodes) {
