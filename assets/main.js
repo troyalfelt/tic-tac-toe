@@ -49,7 +49,7 @@ displayParagraph.textContent = ("Current player: " + player);
 
 //this function governs what happens when there's a draw
 const draw = function() {
-        grid.style.backgroundColor = "yellow";
+        grid.style.backgroundColor = "#faf064";
         displayParagraph.textContent = "Draw!";
         //adds reset button
         footer.appendChild(resetButton);
