@@ -6,6 +6,13 @@
         background: #6e6e6e;
     }
 
+    button {
+        font-size: 2em;
+        background-color: indianred;
+        margin-top: 15px;
+        padding: 7px;
+    }
+
     .grid {
         padding: 50px;
         display: grid;
@@ -53,6 +60,13 @@
         background: #6e6e6e;
     }
 
+    button {
+        font-size: 2em;
+        background-color: indianred;
+        margin-top: 15px;
+        padding: 7px;
+    }
+    
         /* Main Grid Container */
     .grid {
         font-size: 2.3em;
